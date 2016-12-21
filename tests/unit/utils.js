@@ -53,6 +53,10 @@ describe('utils.getBucketNameFromHost', () => {
         [
             '127.0.0.1',
             '8.8.8.8',
+            '[::1]',
+            '[2001:db8:a0b:12f0::1]',
+            // IPv4-mapped IPv6 address
+            '[::ffff:127.0.0.1]',
         ].forEach(host => {
             const headers = { host };
             const result = utils.getBucketNameFromHost({ headers });
@@ -106,7 +110,6 @@ describe('utils.getAllEndpoints', () => {
         assert(allEndpoints.indexOf('s3-external-1.amazonaws.com') >= 0);
         assert(allEndpoints.indexOf('s3.us-east-1.amazonaws.com') >= 0);
         assert(allEndpoints.indexOf('localhost') >= 0);
-        assert(allEndpoints.indexOf('[::1]') >= 0);
     });
 });
 
