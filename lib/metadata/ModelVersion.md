@@ -54,3 +54,15 @@ this._websiteConfiguration = websiteConfiguration || null;
 ### Usage
 
 Used to store the bucket website configuration info
+
+## Model version 5
+
+### Properties Added
+
+```
+this._cors = cors || null;
+```
+
+### Usage
+
+Used to store CORS rules to apply to cross-domain requests
